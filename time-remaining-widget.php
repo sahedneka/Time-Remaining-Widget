@@ -2,8 +2,8 @@
 /**
  * Plugin Name: Time Remaining Widget
  * Plugin URI: https://sahed.dev
- * Description: A compact widget that displays the time remaining between two years. Use shortcode [time_remaining start_year="2023" end_year="2030"] to display the widget.
- * Version: 1.0
+ * Description: A compact widget that displays the time remaining between two years with specific end date. Use shortcode [time_remaining start_year="2023" end_year="2030" end_month="12" end_day="31"] to display the widget.
+ * Version: 1.0.9
  * Author: Sahed Rana Neka
  * Author URI: https://sahed.dev
  * Text Domain: time-remaining-widget
@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Define plugin constants
-define('TIME_REMAINING_WIDGET_VERSION', '1.0.0');
+define('TIME_REMAINING_WIDGET_VERSION', '1.0.9');
 define('TIME_REMAINING_WIDGET_PATH', plugin_dir_path(__FILE__));
 define('TIME_REMAINING_WIDGET_URL', plugin_dir_url(__FILE__));
 

@@ -50,24 +50,18 @@ class Time_Remaining_Widget {
             array(
                 'start_year' => date('Y'), // Current year as default
                 'end_year' => date('Y') + 5, // Current year + 5 as default
+                'end_month' => 1, // January as default
+                'end_day' => 1, // 1st day as default
             ),
             $atts,
             'time_remaining'
         );
         
-        // Validate years
+        // Validate years and date
         $start_year = intval($atts['start_year']);
         $end_year = intval($atts['end_year']);
-        
-        // Pass data to JavaScript
-        wp_localize_script(
-            'time-remaining-script',
-            'timeRemainingData',
-            array(
-                'startYear' => $start_year,
-                'endYear' => $end_year
-            )
-        );
+        $end_month = max(1, min(12, intval($atts['end_month']))); // Ensure month is between 1-12
+        $end_day = max(1, min(31, intval($atts['end_day']))); // Ensure day is between 1-31
         
         // Generate unique ID for multiple instances
         $widget_id = 'time-remaining-' . uniqid();
@@ -75,7 +69,11 @@ class Time_Remaining_Widget {
         // Output HTML
         ob_start();
         ?>
-        <div class="time-remaining-widget" id="<?php echo esc_attr($widget_id); ?>" data-start="<?php echo esc_attr($start_year); ?>" data-end="<?php echo esc_attr($end_year); ?>">
+        <div class="time-remaining-widget" id="<?php echo esc_attr($widget_id); ?>" 
+             data-start="<?php echo esc_attr($start_year); ?>" 
+             data-end="<?php echo esc_attr($end_year); ?>"
+             data-end-month="<?php echo esc_attr($end_month); ?>"
+             data-end-day="<?php echo esc_attr($end_day); ?>">
             <h2><?php esc_html_e('Time Remaining', 'time-remaining-widget'); ?></h2>
             <div class="time-display">
                 <div class="time-unit">
