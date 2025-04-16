@@ -1,0 +1,41 @@
+.time-remaining-widget {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.time-remaining-widget h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.time-remaining-widget .time-display {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px 10px;
+}
+
+.time-remaining-widget .time-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time-remaining-widget .time-unit span {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.time-remaining-widget .time-unit label {
+  font-size: 0.7rem;
+  margin-top: 5px;
+  color: #666;
+}
